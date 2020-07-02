@@ -11,28 +11,37 @@ class Directory extends React.Component {
         this.state = {
             sections : [{
                 title : 'hats',
-                imageUrl: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fz%2Fwinter-people-go-out-like-to-wear-hats-shape-becoming-more-fashionable-which-women-s-hat-chinese-shopping-malls-165448673.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fwinter-people-go-out-like-to-wear-hats-shape-becoming-more-fashionable-which-women-s-hat-chinese-shopping-malls-image165448673&tbnid=DakUb8lNqwt6gM&vet=12ahUKEwi6rfDghKnqAhWR-DgGHUT7BncQMygCegUIARCcAQ..i&docid=4ESOg_ucbDr4YM&w=1600&h=1155&itg=1&q=hats%20in%20malls%20&hl=en-GB&ved=2ahUKEwi6rfDghKnqAhWR-DgGHUT7BncQMygCegUIARCcAQ', 
-                id:1
+                imageUrl: 'https://i1.pickpik.com/photos/739/578/556/black-and-white-girl-hat-woman-thumb.jpg', 
+                id:1, 
+                linkUrl : 'hats'
             }, 
                {
                 title : 'jackets',
-                imageUrl: 'https://ravenleatherz.com/wp-content/uploads/2016/10/Don.jpg', 
-                id:2
+                imageUrl: 'https://lh3.googleusercontent.com/proxy/p_w1A0mkUIxOZmjLw6zppZnZd-OOBouttSNbyhkH2j8YKk8_13BHJ63VVVnwvS7KDcZJdkq3Vx-jr6WA6M7UPJdx4stN2-f0YPEg2gJuDiHMTb6dbZqmdYqzSC3zHm8SsTTvCGCasEZLqoute4GfwkrJuth5Wuo4EmwR1OQVzanxOOMV3ptuUJy20qS_v1O4sdpd00Y', 
+                id:2,
+                linkUrl : ''
                }, 
 
                {
                 title : 'sneakers',
                 imageUrl: 'https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/26902/248904/2019-Casual-Shoes-Men-Flat-Sneakers-Breathable-Fashion-Mesh-Mens-Trainers-Shoes-Summer-Sneakers-Men-Running__04818.1551090017.jpg?c=2&imbypass=on' ,
-                id:3
+                id:3,
+                linkUrl : ''
                }, 
                {
                 title : 'womens',
-                imageUrl: 'https://c.shld.net/rpx/i/s/i/mp/10245335/prod_4411923914?hei=345&wid=345&op_sharpen=1&qlt=85' ,
-                id:4
-               },{
+                imageUrl: 'https://i.insider.com/5be06cbdd1e84420b852fd2c?width=600&format=jpeg&auto=webp' ,
+                size : 'large',
+                id:4, 
+                linkUrl : ''
+
+               },
+               {
                title : 'mens',
                imageUrl: 'https://36.media.tumblr.com/d91f6826efce9d05e556eb0bc1bd811c/tumblr_nz9708vvP61tg9as8o1_500.jpg' ,
-               id:5
+               size : 'large', 
+               id:5,
+               linkUrl : ''
                } ]
         }
     }
@@ -41,8 +50,8 @@ class Directory extends React.Component {
         return(
             <div className='directory-menu'>
                 {
-                    this.state.sections.map(({title , imageUrl , id}) => (
-                        <MenuItem key = {id} title={title}/>
+                    this.state.sections.map(({id, ...otherSectionProps}) => (
+                        <MenuItem key = {id} {...otherSectionProps} />
                     ))
                 }
             </div>
